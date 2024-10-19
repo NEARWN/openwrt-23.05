@@ -104,4 +104,4 @@ jobs:
       uses: GitRML/delete-workflow-runs@main
       with:
         retain_days: 2
-        keep_minimum_runs: 3
+        keep_minimum_runs: 5
