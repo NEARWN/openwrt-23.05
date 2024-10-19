@@ -7,7 +7,7 @@ on:
   
 jobs:
   build:
-    runs-on: Debian 11.11
+    runs-on: debian 11.11
 
     steps:
     - name: Checkout
