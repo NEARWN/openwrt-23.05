@@ -15,8 +15,20 @@ on:
 jobs:
   build:
     runs-on: ubuntu-22.04
-
+    
     steps:
+    - name: Free up disk space
+      if: env.DELETE_USELESS_FILES == 'true' && !cancelled()
+      uses: easimon/maximize-build-space@master
+      with: 
+        root-reserve-mb: 2048
+        swap-size-mb: 1
+        remove-dotnet: 'true'
+        remove-android: 'true'
+        remove-haskell: 'true'
+        remove-codeql: 'true'
+        remove-docker-images: 'true'
+
     - name: Checkout
       uses: actions/checkout@master
 
@@ -80,6 +92,10 @@ jobs:
       run: |
         echo -e "$(nproc) thread build."
         make -j$(nproc) V=s
+        
+    - name: Check space usage
+      if: (!cancelled())
+      run: df -hT
         
     - name : Upload artifact
       uses: actions/upload-artifact@master
