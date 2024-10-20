@@ -5,7 +5,7 @@
 # Youtube Channel: https://goo.gl/fvkdwm 
 #=================================================
 
-name: OpenWrt firmware xiaomi cr6608
+name: Xiaomi CR6608
 
 on: 
   workflow_dispatch:
@@ -84,7 +84,7 @@ jobs:
     - name : Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: OpenWrt firmware xiaomi cr6608
+        name: Xiaomi CR6608
         path: openwrt/bin
 
     - name: Delete workflow runs
