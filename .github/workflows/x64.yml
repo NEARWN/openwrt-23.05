@@ -5,7 +5,7 @@
 # Youtube Channel: https://goo.gl/fvkdwm 
 #=================================================
 
-name:X64
+name: X64
 
 on: 
   workflow_dispatch:
