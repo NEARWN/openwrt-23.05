@@ -52,11 +52,8 @@ jobs:
       run: |
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
-        rm -rf "src-git luci https://github.com/coolsnowwolf/luci.git;openwrt-23.05" >> ./feeds.conf.default
-        rm -rf "rc-git telephony https://github.com/openwrt/telephony.git;openwrt-23.05" >> ./feeds.conf.default
-        echo "src-git ssrp https://github.com/fw876/helloworld.git" >> ./feeds.conf.default
-        echo "src-git luci https://github.com/coolsnowwolf/luci.git" >> ./feeds.conf.default
-        echo "src-git telephony https://git.openwrt.org/feed/telephony.git" >> ./feeds.conf.default        
+        rm -rf feeds.conf.default
+        git clone https://github.com/NEARWN/feeds.conf.default      
         
     - name: Update & Install feeds
       working-directory: ./openwrt
