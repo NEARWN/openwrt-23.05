@@ -10,7 +10,7 @@ name: X64
 on: 
   workflow_dispatch:
   schedule:
-    - cron: 0 20 * * *
+    - cron: 0 22 * * *
   
 jobs:
   build:
