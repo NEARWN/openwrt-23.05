@@ -113,7 +113,7 @@ jobs:
     - name : Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: OpenWrt firmware rockchip hinlink h68k sbwml mosdns
+        name: Rockchip Hinlink H68k sbwml mosdns
         path: openwrt/bin
 
     - name: Delete workflow runs
