@@ -29,6 +29,9 @@ jobs:
         remove-codeql: 'true'
         remove-docker-images: 'true'
 
+    - name: Checkout
+      uses: actions/checkout@master
+
     - name: Initialization environment
       env:
         DEBIAN_FRONTEND: noninteractive
