@@ -106,8 +106,8 @@ jobs:
         name: Xiaomi Redmi ax6000 sbwml mosdns
         path: openwrt/bin
 
-    - name: Delete workflow runs
-      uses: FunctionXJB/delete-workflow-runs@main
-      with:
-        retain_days: 2
-        keep_minimum_runs: 5
+    #- name: Delete workflow runs
+    #  uses: NEARWN/delete-workflow-runs@main
+    #  with:
+    #    retain_days: 2
+    #    keep_minimum_runs: 5
