@@ -32,7 +32,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@master
 
-     - name: Space cleanup and Initialization environment
+    - name: Space cleanup and Initialization environment
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
