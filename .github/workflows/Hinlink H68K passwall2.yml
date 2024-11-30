@@ -64,12 +64,11 @@ jobs:
         ./scripts/feeds install -a
         ./scripts/feeds install -a   
         
-     - name: Import external feeds
+    - name: Import external feeds
       working-directory: ./openwrt
-      run: |
+      run: |       
         rm -rf feeds/packages/net/v2ray-geodata
-        git clone https://github.com/NEARWN/v2ray-geodata feeds/packages/net/v2ray-geodata
-    #    git clone "your_github_link" package/"your_folder_name"             
+        git clone https://github.com/NEARWN/v2ray-geodata package/v2ray-geodata         
     
     - name: Configuration Customization
       env:
