@@ -64,7 +64,7 @@ jobs:
         ./scripts/feeds install -a
         ./scripts/feeds install -a         
         
-     - name: Import external feeds
+    - name: Import external feeds
       working-directory: ./openwrt
       run: |
         rm -rf feeds/packages/net/v2ray-geodata
