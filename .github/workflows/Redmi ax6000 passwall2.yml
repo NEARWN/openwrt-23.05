@@ -5,7 +5,7 @@
 # Youtube Channel: https://goo.gl/fvkdwm 
 #=================================================
 
-name: Xiaomi Redmi ax6000 passwall2
+name: Xiaomi Redmi ax6000 passwall
 
 on: 
   workflow_dispatch:
@@ -102,7 +102,7 @@ jobs:
     - name : Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: Xiaomi Redmi ax6000 passwall2
+        name: Xiaomi Redmi ax6000 passwall
         path: openwrt/bin
 
     #- name: Delete workflow runs
