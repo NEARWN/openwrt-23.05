@@ -54,8 +54,6 @@ jobs:
         REPO_BRANCH: master
       run: |
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
-        cd openwrt
-        echo "src-git ssrp https://github.com/fw876/helloworld.git" >> ./feeds.conf.default
         
     - name: Update & Install feeds
       working-directory: ./openwrt
@@ -70,9 +68,9 @@ jobs:
         rm -rf feeds/packages/net/v2ray-geodata
         rm -rf feeds/luci/applications/luci-app-passwall
         rm -rf feeds/luci/applications/luci-app-passwall2
-        git clone https://github.com/NEARWN/v2ray-geodata package/v2ray-geodata
         git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
         git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
+        git clone https://github.com/xiaorouji/openwrt-passwall-packages package/passwall-packages
     #    git clone "your_github_link" package/"your_folder_name"              
 
     - name: Configuration Customization
