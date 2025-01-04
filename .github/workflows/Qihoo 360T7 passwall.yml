@@ -5,7 +5,7 @@
 # Youtube Channel: https://goo.gl/fvkdwm 
 #=================================================
 
-name: Qihoo 360T7 passwall2
+name: Qihoo 360T7 passwall
 
 on: 
   workflow_dispatch:
@@ -84,7 +84,7 @@ jobs:
 
     - name: Configuration Customization
       env:
-        CONFIG_FILE: 'config/360T7pw2.config'
+        CONFIG_FILE: 'config/360T7pw.config'
       run: |
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         cd openwrt && make defconfig
@@ -109,7 +109,7 @@ jobs:
     - name : Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: Qihoo 360T7 passwall2
+        name: Qihoo 360T7 passwall
         path: openwrt/bin
 
     #- name: Delete workflow runs
