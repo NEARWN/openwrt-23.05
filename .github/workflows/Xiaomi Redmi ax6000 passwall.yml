@@ -5,7 +5,7 @@
 # Youtube Channel: https://goo.gl/fvkdwm 
 #=================================================
 
-name: Xiaomi Redmi ax6000 passwall2
+name: Xiaomi Redmi ax6000 passwall
 
 on: 
   workflow_dispatch:
@@ -84,7 +84,7 @@ jobs:
 
     - name: Configuration Customization - Build_redmiax6000
       env:
-        CONFIG_FILE: 'config/rmax6pw2.config'
+        CONFIG_FILE: 'config/rmax6pw.config'
       run: |
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         cd openwrt && make defconfig
@@ -109,7 +109,7 @@ jobs:
     - name : Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: Xiaomi Redmi ax6000 passwall2
+        name: Xiaomi Redmi ax6000 passwall
         path: openwrt/bin
 
     #- name: Delete workflow runs
