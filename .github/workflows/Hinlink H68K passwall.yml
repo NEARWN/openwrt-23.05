@@ -54,21 +54,21 @@ jobs:
         sudo chown $USER:$GROUPS /mnt/workdir
         df -hT
         
-    - name: Clone source code
+    - name: 下载固件源码
       env: 
         REPO_URL: https://github.com/coolsnowwolf/lede
         REPO_BRANCH: master
       run: |
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
         
-    - name: Update & Install feeds
+    - name: 下载插件
       working-directory: ./openwrt
       run: |
         ./scripts/feeds update -a
         ./scripts/feeds install -a
         ./scripts/feeds install -a   
         
-    - name: Import external feeds
+    - name: 自定义设置
       working-directory: ./openwrt
       run: |       
         rm -rf feeds/packages/net/chinadns-ng
@@ -88,38 +88,41 @@ jobs:
         git clone https://github.com/xiaorouji/openwrt-passwall-packages package/passwall-packages
     #    git clone "your_github_link" package/"your_folder_name"     
     
-    - name: Configuration Customization
+    - name: 加载配置文件
       env:
         CONFIG_FILE: 'config/h68kp.config'
       run: |
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         cd openwrt && make defconfig
         
-    - name: Download package
+    - name: 下载安装包
       working-directory: ./openwrt
       run: |
         make download -j$(nproc)
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
         
-    - name: Build firmware
+    - name: 开始编译固件
       working-directory: ./openwrt
       run: |
         echo -e "$(nproc) thread build."
         make -j$(nproc) V=s
         
-    - name: Check space usage
+    - name: 查看磁盘使用情况
       if: (!cancelled())
       run: df -hT
         
-    - name : Upload artifact
+    - name : 上传固件到github
       uses: actions/upload-artifact@master
       with:
         name:  Hinlink H68K passwall
         path: openwrt/bin
 
-    #- name: Delete workflow runs
-    #  uses: Mattraks/delete-workflow-runs@main
-    #  with:
-    #    retain_days: 2
-    #    keep_minimum_runs: 2
+    - name: 删除旧的Releases
+      uses: dev-drprasad/delete-older-releases@master
+      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
+      with:
+        keep_latest: 3
+        delete_tags: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
