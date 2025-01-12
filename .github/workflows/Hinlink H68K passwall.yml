@@ -1,8 +1,8 @@
 #=================================================
 # Description: Build OpenWrt using GitHub Actions
 # Lisence: MIT
-# Author: eSirPlayground
-# Youtube Channel: https://goo.gl/fvkdwm 
+# 参考编译流程 https://github.com/firkerword/openwrt-Exclusive
+# 参考编译流程 https://github.com/esirplayground/AutoBuild-OpenWrt
 #=================================================
 
 name: Hinlink H68K passwall
