@@ -101,12 +101,3 @@ jobs:
       with:
         name:  Hinlink H68K
         path: openwrt/bin
-
-    - name: 删除旧的Releases
-      uses: dev-drprasad/delete-older-releases@master
-      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
-      with:
-        keep_latest: 3
-        delete_tags: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
