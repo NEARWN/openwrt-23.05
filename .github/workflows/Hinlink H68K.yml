@@ -9,9 +9,7 @@ name: Hinlink H68K
 
 on: 
   workflow_dispatch:
-  schedule:
-     - cron: 0 26 * * 5
-  
+    
 jobs:
   build:
     runs-on: ubuntu-22.04
