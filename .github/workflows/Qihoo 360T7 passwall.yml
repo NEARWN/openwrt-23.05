@@ -10,7 +10,7 @@ name: Qihoo 360T7 passwall
 on: 
   workflow_dispatch:
   schedule:
-    - cron: 0 20 * * 5
+    - cron: 0 23 * * 5
   
 jobs:
   build:
