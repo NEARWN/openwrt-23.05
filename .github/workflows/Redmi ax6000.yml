@@ -9,8 +9,7 @@ name: Xiaomi Redmi ax6000
 
 on: 
   workflow_dispatch:
-  schedule:
-    - cron: 0 22 * * 5
+  
   
 jobs:
   build:
