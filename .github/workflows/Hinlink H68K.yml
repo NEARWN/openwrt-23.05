@@ -10,7 +10,7 @@ name: Hinlink H68K
 on: 
   workflow_dispatch:
   schedule:
-     - cron: 0 22 * * 5
+     - cron: 0 26 * * 5
   
 jobs:
   build:
