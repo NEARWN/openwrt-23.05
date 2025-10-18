@@ -78,9 +78,22 @@ jobs:
       run: |
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
-        chmod +x $DIY_P2_SH
+        rm -rf feeds/packages/net/chinadns-ng
+        rm -rf feeds/packages/net/dns2socks
+        rm -rf feeds/packages/net/dns2tcp
+        rm -rf feeds/packages/net/microsocks
+        rm -rf feeds/packages/net/pdnsd-alt
+        rm -rf feeds/packages/net/sing-box
+        rm -rf feeds/packages/net/tcping
+        rm -rf feeds/packages/net/trojan
+        rm -rf feeds/packages/net/v2ray-geodata
+        rm -rf feeds/packages/net/xray-core
+        rm -rf feeds/luci/applications/luci-app-passwall
+        rm -rf feeds/luci/applications/luci-app-passwall2
+        git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
+        git clone https://github.com/xiaorouji/openwrt-passwall-packages package/passwall-packages
+    #    git clone "your_github_link" package/"your_folder_name"    
         cd openwrt
-        $GITHUB_WORKSPACE/$DIY_P2_SH
 
     - name: 下载安装包
       id: package
