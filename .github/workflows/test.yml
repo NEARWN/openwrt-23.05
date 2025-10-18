@@ -92,9 +92,8 @@ jobs:
         rm -rf feeds/luci/applications/luci-app-passwall2
         git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
         git clone https://github.com/xiaorouji/openwrt-passwall-packages package/passwall-packages
-    #    git clone "your_github_link" package/"your_folder_name"    
-        cd openwrt
-
+    #    git clone "your_github_link" package/"your_folder_name"   
+            
     - name: 下载安装包
       id: package
       run: |
