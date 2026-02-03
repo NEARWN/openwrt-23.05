@@ -79,9 +79,9 @@ jobs:
         rm -rf feeds/packages/net/xray-core
         rm -rf feeds/luci/applications/luci-app-passwall
         rm -rf feeds/luci/applications/luci-app-passwall2
-        git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
-        git clone https://github.com/xiaorouji/openwrt-passwall-packages package/passwall-packages
-    #    git clone "your_github_link" package/"your_folder_name"     
+        git clone https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall
+        git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/passwall-packages
+    #    git clone "your_github_link" package/"your_folder_name"  
     
     - name: 加载配置文件
       env:
