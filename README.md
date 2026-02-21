@@ -10,10 +10,6 @@ Lean's OpenWrt source
 
 https://github.com/coolsnowwolf/lede
 
-替换源码中MOSDNS为以下源码
-
-https://github.com/sbwml/luci-app-mosdns
-
 解除网易云音乐播放限制的 OpenWrt 插件使用源码
 
 https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic
