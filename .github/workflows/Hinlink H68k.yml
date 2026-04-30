@@ -70,15 +70,19 @@ jobs:
         ./scripts/feeds install -a    
 
   
-    #- name: 自定义插件设置
-    #  working-directory: ./openwrt
-    #  run: |
-    #    git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/music
+    - name: 自定义设置
+      working-directory: ./openwrt
+      run: |       
+        rm -rf feeds/packages/net/{xray-core,v2ray-geodata,sing-box,chinadns-ng,dns2socks,hysteria,ipt2socks,microsocks,naiveproxy,shadowsocks-libev,shadowsocks-rust,shadowsocksr-libev,simple-obfs,tcping,trojan-plus,tuic-client,v2ray-plugin,xray-plugin,geoview,shadow-tls}
+        git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/passwall-packages
+        rm -rf feeds/luci/applications/luci-app-passwall        
+        rm -rf feeds/luci/applications/luci-app-passwall2
+        git clone https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall-luci
     #    git clone "your_github_link" package/"your_folder_name"             
 
     - name: 加载配置文件
       env:
-        CONFIG_FILE: 'config/h68k.config'
+        CONFIG_FILE: 'config/h68kp.config'
       run: |
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         cd openwrt && make defconfig
