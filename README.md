@@ -6,7 +6,7 @@ https://github.com/esirplayground/AutoBuild-OpenWrt
 
 编译源码使用
 
-Lean's OpenWrt source  18.06
+Lean's OpenWrt source  23.05
 
 https://github.com/coolsnowwolf/lede
 
